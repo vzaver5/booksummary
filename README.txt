@@ -1,0 +1,1 @@
+To remember what happened in previous books in a series or to simply keep track of current events in your book, this program makes a template given some input and allows you to write summaries of each chapter that you read. This way, you don't have to be worried about searching a summary of a book on the internet in fear of spoilers.
