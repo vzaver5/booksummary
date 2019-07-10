@@ -1,6 +1,8 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+#include <windows.h>
+#include <ShellApi.h>
 using namespace std;
 
 int main() {
@@ -10,6 +12,10 @@ int main() {
 	int num_chapters;
 	char option;		//Whether they chose new/existing template
 	string trash;		//Clean up whitespace
+	char close;			
+	string path = "C:\\Users\\Varun\\Desktop\\Book Summaries\\";	//Path then append the book title here
+		//(path + book_title + ".txt").c_str()
+
 
 	//Ask if they want to open an already made summary file	
 	cout << "Welcome to the Book Refresher" << endl;
@@ -51,20 +57,8 @@ int main() {
 		cout << "What book are you looking for?" << endl;
 		getline(cin, book_title);
 
-		string line;
-		ifstream in_file;
-		in_file.open(book_title + ".txt");
-
-		if (!in_file) {
-			cout << "Error opening your file!\nNow exiting the program." << endl;
-			exit(1);	//Error with opening their file
-		}
-
-		while (getline(in_file, line)) {
-			cout << line << endl;
-		}
-		in_file.close();
-		//Search the folder for book_title
+		//Trying to open the file up
+		ShellExecute(NULL, "open", (path + book_title + ".txt").c_str(), NULL, NULL, SW_SHOWNORMAL);	
 	}
 
 	return 0;
